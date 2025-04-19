@@ -21,9 +21,17 @@ pipeline {
             }
         }
 
-        stage('Package') {
+        stage('Verify') {
             steps {
                 sh 'mvn clean verify'
+            }
+        }
+
+        stage('SonarQube Analysis') {
+            steps {
+                withSonarQubeEnv('My Sonar') {
+                    sh 'mvn sonar:sonar'
+                }
             }
         }
     }

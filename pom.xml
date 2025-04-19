@@ -21,6 +21,8 @@
         <maven.compiler.target>21</maven.compiler.target>
         <maven.compiler.source>2</maven.compiler.source>
         <jacoco.excludes>**/JenkinsDemoApplication*.class</jacoco.excludes>
+        <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
+        <sonar.coverage.exclusions>**/JenkinsDemoApplication.java</sonar.coverage.exclusions>
     </properties>
 
     <dependencies>
