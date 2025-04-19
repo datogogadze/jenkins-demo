@@ -22,4 +22,18 @@ public class JenkinsDemoApplicationTests {
     assertThat(hello).containsIgnoringCase("hello");
   }
 
+  @Test
+  void should_contain_echo() {
+    String hello = helloController.echo("echo");
+    assertThat(hello).isEqualTo("echo");
+  }
+
+  @Test
+  void should_contain_hello_name() {
+    String name = "John";
+    String hello = helloController.greet(name);
+    assertThat(hello).containsIgnoringCase("hello");
+    assertThat(hello).containsIgnoringCase(name);
+  }
+
 }

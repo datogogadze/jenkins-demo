@@ -21,22 +21,32 @@ pipeline {
             }
         }
 
-        stage('Compile') {
+        stage('Verify') {
             steps {
-                sh 'mvn clean compile'
+                sh 'mvn clean verify'
             }
         }
 
-        stage('Test') {
+        stage('SonarQube Analysis') {
             steps {
-                sh 'mvn test'
+                withSonarQubeEnv('My Sonar') {
+                    sh 'mvn sonar:sonar'
+                }
             }
         }
 
-        stage('Package') {
+        stage('SonarQube Quality Gate') {
             steps {
-                sh 'mvn package -DskipTests'
+                timeout(time: 2, unit: 'MINUTES') {
+                    waitForQualityGate abortPipeline: true
+                }
             }
+        }
+    }
+
+    post {
+        always {
+            junit '**/target/surefire-reports/*.xml'
         }
     }
 }
