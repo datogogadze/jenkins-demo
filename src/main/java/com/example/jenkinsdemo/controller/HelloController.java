@@ -14,9 +14,14 @@ public class HelloController {
     return "Hello, Spring Boot!";
   }
 
-//  @GetMapping("/echo")
-//  public String echo(@RequestParam("message") String message) {
-//    return message;
-//  }
+  @GetMapping("/echo")
+  public String echo(@RequestParam("message") String message) {
+    return message;
+  }
+
+  @GetMapping("/greet")
+  public String greet(@RequestParam("name") String name) {
+    return "Hello, " + name + "!";
+  }
 
 }
