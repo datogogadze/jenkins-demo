@@ -6,6 +6,13 @@ pipeline {
     }
 
     stages {
+
+        stage('Verify Maven') {
+            steps {
+                sh 'mvn -v'
+            }
+        }
+
         stage('Compile') {
             steps {
                 sh 'mvn clean compile'
