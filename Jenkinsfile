@@ -8,11 +8,13 @@ pipeline {
 
     stages {
 
-        stage('Verify Maven') {
-            steps {
-                sh 'mvn -v'
-            }
-        }
+       stage('Verify JDK & Maven') {
+           steps {
+               sh 'echo $JAVA_HOME'
+               sh 'java -version'
+               sh 'mvn -v'
+           }
+       }
 
         stage('Compile') {
             steps {
