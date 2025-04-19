@@ -17,7 +17,7 @@ public class JenkinsDemoApplicationTests {
   void contextLoads() {}
 
   @Test
-  void test_hello() {
+  void should_contain_hello() {
     String hello = helloController.hello();
     assertThat(hello).containsIgnoringCase("hello");
   }
