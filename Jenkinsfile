@@ -29,8 +29,16 @@ pipeline {
 
         stage('SonarQube Analysis') {
             steps {
-                withSonarQubeEnv('My Sonar') {
-                    sh 'mvn sonar:sonar -Dsonar.branch.name=master'
+                script {
+                    echo "Analyzing branch: ${env.BRANCH_NAME}"
+
+                    withSonarQubeEnv('My Sonar') {
+                        sh """
+                            mvn sonar:sonar \
+                              -Dsonar.projectKey=jenkins-demo-${env.BRANCH_NAME} \
+                              -Dsonar.projectName="Jenkins Demo (${env.BRANCH_NAME})"
+                        """
+                    }
                 }
             }
         }
