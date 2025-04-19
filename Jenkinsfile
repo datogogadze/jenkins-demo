@@ -1,14 +1,9 @@
 pipeline {
     agent any
 
-    environment {
-        JAVA_HOME = '/root/.sdkman/candidates/java/21.0.2-tem'
-        PATH = "${JAVA_HOME}/bin:${PATH}"
-    }
-
     tools {
         maven 'Maven 3.8.6'
-        jdk 'jdk21'
+        jdk 'jdk17'
     }
 
     stages {
