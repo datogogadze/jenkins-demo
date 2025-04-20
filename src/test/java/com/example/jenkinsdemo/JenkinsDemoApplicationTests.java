@@ -39,7 +39,7 @@ public class JenkinsDemoApplicationTests {
   @Test
   void should_contain_hello_name_in_spanish() {
     String name = "John";
-    String hello = helloController.greet(name);
+    String hello = helloController.greetSpanish(name);
     assertThat(hello).containsIgnoringCase("hola");
     assertThat(hello).containsIgnoringCase(name);
   }
@@ -47,8 +47,16 @@ public class JenkinsDemoApplicationTests {
   @Test
   void should_contain_hello_name_in_french() {
     String name = "John";
-    String hello = helloController.greet(name);
+    String hello = helloController.greetFrench(name);
     assertThat(hello).containsIgnoringCase("bonjour");
+    assertThat(hello).containsIgnoringCase(name);
+  }
+
+  @Test
+  void should_contain_hello_name_in_italian() {
+    String name = "John";
+    String hello = helloController.greetItalian(name);
+    assertThat(hello).containsIgnoringCase("ciao");
     assertThat(hello).containsIgnoringCase(name);
   }
 
