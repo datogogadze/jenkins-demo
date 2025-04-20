@@ -51,5 +51,14 @@ pipeline {
         always {
             junit '**/target/surefire-reports/*.xml'
         }
+        success {
+            build job: 'jenkins-demo-cd',
+                wait: false,
+                parameters: [
+                    string(name: 'DEMO_BRANCH_NAME', value: env.BRANCH_NAME),
+                    string(name: 'DEMO_BUILD_NUMBER', value: env.BUILD_NUMBER)
+                ],
+                propagate: false
+        }
     }
 }
