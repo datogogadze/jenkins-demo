@@ -47,13 +47,6 @@ pipeline {
             steps {
                 timeout(time: 2, unit: 'MINUTES') {
                     waitForQualityGate abortPipeline: true
-                    script {
-                        def qg = waitForQualityGate()
-                        echo "Quality Gate status: ${qg.status}"
-                        if (qg.status != 'OK') {
-                            error "Pipeline failed due to Quality Gate: ${qg.toString()}"
-                        }
-                    }
                 }
             }
         }
