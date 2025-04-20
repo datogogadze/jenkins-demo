@@ -8,16 +8,11 @@ pipeline {
 
     stages {
 
-        stage('Show Java version') {
+        stage('Show Java & Maven versions') {
             steps {
                sh 'echo JAVA_HOME is $JAVA_HOME'
                sh 'java -version'
-            }
-        }
-
-        stage('Show Maven version') {
-            steps {
-                sh 'mvn -v'
+               sh 'mvn -v'
             }
         }
 
