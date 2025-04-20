@@ -39,4 +39,9 @@ public class HelloController {
     return "Ciao, " + name + "!";
   }
 
+  @GetMapping("/greet/dutch")
+  public String greetDutch(@RequestParam("name") String name) {
+    return "Hallo, " + name + "!";
+  }
+
 }
