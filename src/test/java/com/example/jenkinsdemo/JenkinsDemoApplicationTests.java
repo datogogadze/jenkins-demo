@@ -23,6 +23,12 @@ public class JenkinsDemoApplicationTests {
   }
 
   @Test
+  void should_contain_bye() {
+    String hello = helloController.bye();
+    assertThat(hello).containsIgnoringCase("bye");
+  }
+
+  @Test
   void should_contain_echo() {
     String hello = helloController.echo("echo");
     assertThat(hello).isEqualTo("echo");
