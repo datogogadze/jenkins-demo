@@ -24,4 +24,14 @@ public class HelloController {
     return "Hello, " + name + "!";
   }
 
+  @GetMapping("/greet/spanish")
+  public String greetSpanish(@RequestParam("name") String name) {
+    return "Hola, " + name + "!";
+  }
+
+  @GetMapping("/greet/french")
+  public String greetFrench(@RequestParam("name") String name) {
+    return "Bonjour, " + name + "!";
+  }
+
 }

@@ -36,4 +36,20 @@ public class JenkinsDemoApplicationTests {
     assertThat(hello).containsIgnoringCase(name);
   }
 
+  @Test
+  void should_contain_hello_name_in_spanish() {
+    String name = "John";
+    String hello = helloController.greet(name);
+    assertThat(hello).containsIgnoringCase("hola");
+    assertThat(hello).containsIgnoringCase(name);
+  }
+
+  @Test
+  void should_contain_hello_name_in_french() {
+    String name = "John";
+    String hello = helloController.greet(name);
+    assertThat(hello).containsIgnoringCase("bonjour");
+    assertThat(hello).containsIgnoringCase(name);
+  }
+
 }
